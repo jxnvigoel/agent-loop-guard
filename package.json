@@ -19,5 +19,13 @@
     "guardrails"
   ],
   "author": "Janvi Goel",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jxnvigoel/agent-loop-guard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jxnvigoel/agent-loop-guard/issues"
+  },
+  "homepage": "https://github.com/jxnvigoel/agent-loop-guard#readme"
 }
