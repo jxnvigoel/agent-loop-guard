@@ -1,0 +1,23 @@
+{
+  "name": "@jxnvigoel19/agent-loop-guard",
+  "version": "1.0.0",
+  "description": "Lightweight circuit breaker that stops AI agents from getting stuck in infinite tool-calling loops.",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "ai",
+    "agent",
+    "agentic-ai",
+    "llm",
+    "loop-detection",
+    "guardrails"
+  ],
+  "author": "Janvi Goel",
+  "license": "MIT"
+}

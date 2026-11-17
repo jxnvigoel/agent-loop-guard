@@ -1,0 +1,41 @@
+# @jxnvigoel19/agent-loop-guard
+
+A zero-dependency circuit breaker for AI agents in Node.js. Stops tool-calling agents from burning API credits in infinite repetition loops (`A -> A -> A`) or oscillating ping-pong loops (`A -> B -> A -> B`).
+
+## Installation
+
+```bash
+npm install @jxnvigoel19/agent-loop-guard
+```
+
+## Usage
+
+```javascript
+const { createLoopGuard } = require("@jxnvigoel19/agent-loop-guard");
+
+const guard = createLoopGuard({
+  maxIdenticalCalls: 2,
+  windowSize: 10
+});
+
+const tools = guard.wrapAll({
+  searchWeb: async ({ query }) => {
+    return `Results for ${query}`;
+  }
+});
+
+// Call inside your agent loop
+async function run() {
+  const output = await tools.searchWeb({ query: "latest AI news" });
+  console.log(output);
+}
+
+run();
+```
+
+## API
+
+- `createLoopGuard(options)` — Creates a new guard instance.
+- `guard.wrap(toolName, fn)` — Wraps a single tool function.
+- `guard.wrapAll(toolsObj)` — Wraps every function inside a tools object.
+- `guard.reset()` — Clears history between separate agent runs.
